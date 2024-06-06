@@ -16,3 +16,4 @@ export function inorderTraversal(root: TreeNode | null): number[] {
 
 	return [...left, root.val, ...right];
 }
+

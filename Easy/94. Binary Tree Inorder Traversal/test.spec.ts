@@ -5,9 +5,14 @@ describe("94. Binary Tree Inorder Traversal", () => {
 		const root: TreeNode = new TreeNode(
 			1,
 			null,
-			new TreeNode(2, null, new TreeNode(3))
+			new TreeNode(2, new TreeNode(3))
 		);
 
 		expect(inorderTraversal(root)).toEqual([1, 3, 2]);
+	});
+
+	it("should return empty array if root is null", () => {
+		const root: TreeNode = null;
+		expect(inorderTraversal(root)).toEqual([]);
 	});
 });
