@@ -5,7 +5,7 @@ describe("94. Binary Tree Inorder Traversal", () => {
 		const root: TreeNode = new TreeNode(
 			1,
 			null,
-			new TreeNode(2, new TreeNode(5))
+			new TreeNode(2, new TreeNode(2))
 		);
 
 		expect(inorderTraversal(root)).toEqual([1, 3, 2]);
