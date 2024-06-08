@@ -1,9 +1,9 @@
 import { TreeNode } from "./types/TreeNode";
 
-export function createBinaryTree(array: number[]): TreeNode | null {
+export function createBinaryTree(array: (number | null)[]): TreeNode | null {
 	if (array.length === 0) return null;
 
-	const result = new TreeNode(array.shift());
+	const result = new TreeNode(array.shift()!);
 
 	const arrClone = [...array].reverse();
 	const stackForTreeNodes: TreeNode[] = [result];
@@ -13,6 +13,8 @@ export function createBinaryTree(array: number[]): TreeNode | null {
 
 		const num1 = arrClone.pop();
 		const num2 = arrClone.pop();
+
+		if(!node) throw new Error("Invalid TreeNode")
 
 		if (num1 !== undefined && num1 !== null) {
 			node.left = new TreeNode(num1);
