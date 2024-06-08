@@ -2,7 +2,6 @@
 	"name": "leet-code",
 	"version": "1.0.0",
 	"description": "",
-	"main": "index.ts",
 	"type": "module",
 	"keywords": [],
 	"author": "",
@@ -24,7 +23,8 @@
 		],
 		"rootDir": "./",
 		"moduleNameMapper": {
-			"^src/(.*)$": "<rootDir>/$1"
+			"^/(.*)$": "<rootDir>/$1",
+			"^@helpers(.*)$": "<rootDir>/helpers$1"
 		},
 		"testRegex": ".*\\.spec\\.ts$",
 		"transform": {
