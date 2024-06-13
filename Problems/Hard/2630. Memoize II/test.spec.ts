@@ -19,4 +19,20 @@ describe("2630. Memoize II", () => {
 
 		expect(mockFn).toHaveBeenCalledTimes(2);
 	});
+
+	test("Merging two empty objects will always result in an empty object. Should only be 1 call to fn().", () => {
+		const mockFn: ReturnType<typeof memoize> = jest.fn(
+			(a: Record<string, unknown>, b: Record<string, unknown>) => ({
+				...a,
+				...b,
+			})
+		);
+		const memoizedFn = memoize(mockFn);
+
+		memoizedFn({}, {});
+		memoizedFn({}, {});
+		memoizedFn({}, {});
+
+		expect(mockFn).toHaveBeenCalledTimes(1);
+	});
 });
